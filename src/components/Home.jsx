@@ -96,6 +96,7 @@ export default function Home(props) {
         <Button size='small' variant='contained' onClick={handleResetGoal}>
           Reset Goal
         </Button>
+        <h2 style={{ marginTop: "0px", marginBottom: "0px", marginLeft: "20px" }}>Remaining: {goal - count}</h2>
       </div>
       }
 
