@@ -7,9 +7,10 @@ import { Alert, Dialog, DialogActions, DialogContent, DialogTitle, Snackbar, Tex
 import { useState } from 'react';
 import ReactConfetti from 'react-confetti';
 import { useWindowSize } from "react-use";
+import ThemeSelector from './ThemeSelector';
 
 export default function Home(props) {
-  let { count, setCount, goal, setGoal } = props
+  let { count, setCount, goal, setGoal, bgColor } = props
 
   const duration = 10000
   const vertical = "bottom"
@@ -73,7 +74,7 @@ export default function Home(props) {
     }
   }, [showConfetti, duration]);
 
-  return (<>
+  return (<>    
     <Box
       sx={{
         display: 'flex',
@@ -87,13 +88,13 @@ export default function Home(props) {
       }}
     >
 
-      {(!goal || goal === 0) && <Button size='small' style={{ marginTop: "25px" }} variant='contained' onClick={handleClickOpen}>
+      {(!goal || goal === 0) && <Button size='small' style={{ marginTop: "25px", backgroundColor: bgColor, transition: "0.3s" }} variant='contained' onClick={handleClickOpen}>
         Set Goal
       </Button>}
 
       {goal && goal !== 0 && <div style={{ marginTop: "25px", marginBottom: "0px", display: "flex", alignItems: "center" }}>
         <h2 style={{ marginTop: "0px", marginBottom: "0px", marginRight: "20px" }}>Goal: {goal}</h2>
-        <Button size='small' variant='contained' onClick={handleResetGoal}>
+        <Button sx={{backgroundColor: bgColor, transition: "0.3s"}} size='small' variant='contained' onClick={handleResetGoal}>
           Reset Goal
         </Button>
         <h2 style={{ marginTop: "0px", marginBottom: "0px", marginLeft: "20px" }}>Remaining: {goal - count}</h2>
@@ -147,8 +148,8 @@ export default function Home(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button type="submit">Ok</Button>
+          <Button sx={{backgroundColor: bgColor, transition: "0.3s"}} onClick={handleClose}>Cancel</Button>
+          <Button sx={{backgroundColor: bgColor, transition: "0.3s"}} type="submit">Ok</Button>
         </DialogActions>
       </Dialog>
 
@@ -168,9 +169,9 @@ export default function Home(props) {
       </Snackbar>
 
       <ButtonGroup style={{ marginTop: "25px" }} variant="outlined" aria-label="Basic button group">
-        <Button style={{ border: "0px" }} onClick={handleIncrease}><AddCircle style={{ fontSize: "33px" }} /></Button>
-        <Button style={{ border: "0px" }} onClick={handleDecrease} disabled={count === 0}><RemoveCircle style={{ fontSize: "33px" }} /></Button>
-        <Button style={{ border: "0px" }} onClick={handleReset} disabled={count === 0}><ReplayCircleFilled style={{ fontSize: "33px" }} /></Button>
+        <Button style={{ border: "0px" }} onClick={handleIncrease}><AddCircle style={{ fontSize: "33px", color: bgColor, transition: "0.3s" }} /></Button>
+        <Button style={{ border: "0px" }} onClick={handleDecrease} disabled={count === 0}><RemoveCircle style={{ fontSize: "33px", color: bgColor, transition: "0.3s" }} /></Button>
+        <Button style={{ border: "0px" }} onClick={handleReset} disabled={count === 0}><ReplayCircleFilled style={{ fontSize: "33px", color: bgColor, transition: "0.3s" }} /></Button>
       </ButtonGroup>
       <Typography variant="h4">{count}</Typography>
     </Box>
