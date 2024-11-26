@@ -148,8 +148,8 @@ export default function Home(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button sx={{backgroundColor: white, color: bgColor, transition: "0.3s"}} onClick={handleClose}>Cancel</Button>
-          <Button sx={{backgroundColor: white, color: bgColor, transition: "0.3s"}} type="submit">Ok</Button>
+          <Button sx={{backgroundColor: "white", color: bgColor, transition: "0.3s"}} onClick={handleClose}>Cancel</Button>
+          <Button sx={{backgroundColor: "white", color: bgColor, transition: "0.3s"}} type="submit">Ok</Button>
         </DialogActions>
       </Dialog>
 
