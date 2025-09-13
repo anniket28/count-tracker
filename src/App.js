@@ -8,17 +8,21 @@ import Footer from './components/Footer';
 
 function App() {
   const colors = [
-    { name: 'Default', value: '#1976d2' },
+    { name: 'Default', value: 'green' },
     { name: 'Red', value: 'red' },
-    { name: 'Green', value: 'green' },
+    { name: 'Blue', value: '#1976d2' },
     { name: 'Black', value: 'black' },
   ];
 
-  const [message, setmessage] = useState("")
-  const [goal, setGoal] = useState(null)
-  const [count, setCount] = useState(0)
-  const [bgColor, setBgColor] = useState(localStorage.getItem("pageTheme") ? localStorage.getItem("pageTheme") : '#1976d2');
   const [open, setOpen] = useState(true)
+  const [message, setmessage] = useState("")
+  const [quote, setQuote] = useState("Stay strong. Better days are coming.")
+  const [bgColor, setBgColor] = useState(localStorage.getItem("pageTheme") ? localStorage.getItem("pageTheme") : 'green');
+  const [count, setCount] = useState(0)
+  const [countGoal, setCountGoal] = useState(null)
+  const [bigCount, setBigCount] = useState(0)
+  const [bigCountGoal, setBigCountGoal] = useState(null)
+  const [totalCount, setTotalCount] = useState(count + bigCount)
 
   const handleColorChange = (event) => {
     localStorage.setItem("pageTheme", event.target.value)
@@ -45,8 +49,16 @@ function App() {
       setCount(parseInt(localStorage.getItem('count')))
     }
 
-    if (localStorage.getItem('goal')) {
-      setGoal(parseInt(localStorage.getItem('goal')))
+    if (localStorage.getItem('countGoal')) {
+      setCountGoal(parseInt(localStorage.getItem('countGoal')))
+    }
+
+    if (localStorage.getItem('bigCount')) {
+      setBigCountGoal(parseInt(localStorage.getItem('bigCount')))
+    }
+
+    if (localStorage.getItem('bigCountGoal')) {
+      setBigCountGoal(parseInt(localStorage.getItem('bigCountGoal')))
     }
 
     setOpen(false)
@@ -57,9 +69,9 @@ function App() {
     <div className="App">
       {open && <Loader bgColor={bgColor} />}
       {!open && <>
-        <Header message={message} count={count} setCount={setCount} goal={goal} setGoal={setGoal} bgColor={bgColor} />
+        <Header count={count} setCount={setCount} countGoal={countGoal} setCountGoal={setCountGoal} bgColor={bgColor} />
         <ThemeSelector colors={colors} bgColor={bgColor} handleColorChange={handleColorChange} />
-        <Home count={count} setCount={setCount} goal={goal} setGoal={setGoal} bgColor={bgColor} />
+        <Home count={count} setCount={setCount} countGoal={countGoal} setCountGoal={setCountGoal} bigCount={bigCount} setBigCount={setBigCount} bigCountGoal={bigCountGoal} setBigCountGoal={setBigCountGoal} totalCount={totalCount} setTotalCount={setTotalCount} bgColor={bgColor} />
         <Footer bgColor={bgColor} />
       </>}
     </div>

@@ -19,7 +19,7 @@ const ThemeSelector = (props) => {
                         p: 1,
                     }}
                 >
-                    <h3 style={{ marginBottom: "0px" }}>Select Page Theme</h3>
+                    <h4 style={{ marginBottom: "0px" }}>Select Page Theme</h4>
 
                     <FormControl component="fieldset">
                         <RadioGroup
