@@ -44,10 +44,11 @@ function App() {
       setmessage("Evening")
     }
 
+    let totalCountVal = 0
 
     if (localStorage.getItem('count')) {
       setCount(parseInt(localStorage.getItem('count')))
-      setTotalCount(totalCount + parseInt(localStorage.getItem('count')))
+      totalCountVal += parseInt(localStorage.getItem('count'))
     }
 
     if (localStorage.getItem('countGoal')) {
@@ -56,12 +57,14 @@ function App() {
 
     if (localStorage.getItem('bigCount')) {
       setBigCount(parseInt(localStorage.getItem('bigCount')))
-      setTotalCount(totalCount + parseInt(localStorage.getItem('bigCount')))
+      totalCountVal += parseInt(localStorage.getItem('bigCountGoal'))
     }
 
     if (localStorage.getItem('bigCountGoal')) {
       setBigCountGoal(parseInt(localStorage.getItem('bigCountGoal')))
     }
+
+    setTotalCount(totalCountVal)
 
     setOpen(false)
   }, [])
