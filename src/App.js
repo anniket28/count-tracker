@@ -22,7 +22,7 @@ function App() {
   const [countGoal, setCountGoal] = useState(null)
   const [bigCount, setBigCount] = useState(0)
   const [bigCountGoal, setBigCountGoal] = useState(null)
-  const [totalCount, setTotalCount] = useState(count + bigCount)
+  const [totalCount, setTotalCount] = useState((localStorage.getItem('count') ? parseInt(localStorage.getItem('count')) : 0) + localStorage.getItem('bigCount') ? parseInt(localStorage.getItem('bigCount')) : 0)
 
   const handleColorChange = (event) => {
     localStorage.setItem("pageTheme", event.target.value)
@@ -54,7 +54,7 @@ function App() {
     }
 
     if (localStorage.getItem('bigCount')) {
-      setBigCountGoal(parseInt(localStorage.getItem('bigCount')))
+      setBigCount(parseInt(localStorage.getItem('bigCount')))
     }
 
     if (localStorage.getItem('bigCountGoal')) {
