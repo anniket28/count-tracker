@@ -57,7 +57,7 @@ function App() {
 
     if (localStorage.getItem('bigCount')) {
       setBigCount(parseInt(localStorage.getItem('bigCount')))
-      totalCountVal += parseInt(localStorage.getItem('bigCountGoal'))
+      totalCountVal += parseInt(localStorage.getItem('bigCount'))
     }
 
     if (localStorage.getItem('bigCountGoal')) {
